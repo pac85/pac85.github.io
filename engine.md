@@ -56,11 +56,19 @@ The scenes is rendered multiple times from the lights point of view into an 8k x
 
 ## Lighting
 
+My renderer uses tiled light culling. The screen is divided in 16x16 tiles and
+min-max depth is calculated for each using parallel reduction. After that lights
+are assigned to tiles.
+
 A compute shader is dispatched to calculate diffuse and specular irradiance from
-the buffers of the previous frame.
+the buffers of the previous pass, a workgroup runs for each tile.
 
 <img align="left" src="https://cdn.discordapp.com/attachments/177443107355230209/784197381851578378/Screenshot_20201204_001724.png" width="450" />
 <img src="https://cdn.discordapp.com/attachments/177443107355230209/784197383558004767/Screenshot_20201204_001737.png" width="450" />
+
+By removing fallof tile culling becomes obvious
+
+<img src="https://github.com/pac85/pac85.github.io/raw/main/images/nofallof.png" width="450" />
 
 (Some details are noticable due to normal maps)
 

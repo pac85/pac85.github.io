@@ -3,13 +3,10 @@ https://gitlab.com/pac85/GameKernel/
 
 # Screenshots and features
 
-![](https://cdn.discordapp.com/attachments/177443107355230209/784192703013453824/Screenshot_20201203_235429.png)
-
-![](https://cdn.discordapp.com/attachments/177443107355230209/784192707710812190/Screenshot_20201203_235555.png)
-
-![](https://cdn.discordapp.com/attachments/177443107355230209/784192707160571944/Screenshot_20201203_235454.png)
-
-![](https://cdn.discordapp.com/attachments/177443107355230209/784192711796195368/Screenshot_20201203_235630.png)
+<img align="left" src="https://cdn.discordapp.com/attachments/177443107355230209/784192703013453824/Screenshot_20201203_235429.png" width="450" />
+<img src="https://cdn.discordapp.com/attachments/177443107355230209/784192707710812190/Screenshot_20201203_235555.png" width="450" />
+<img align="left" src="https://cdn.discordapp.com/attachments/177443107355230209/784192707160571944/Screenshot_20201203_235454.png" width="450" />
+<img src="https://cdn.discordapp.com/attachments/177443107355230209/784192711796195368/Screenshot_20201203_235630.png" width="450" />
 
 Highlights:
 
@@ -36,9 +33,8 @@ The renderer is a "deferred lighting" renderer consisting of the following steps
 The scene is drawn and depth, normals and motion vectors are written to the
 framebuffer
 
-![](https://cdn.discordapp.com/attachments/177443107355230209/784197372611395614/Screenshot_20201204_001614.png)
-
-![](https://cdn.discordapp.com/attachments/177443107355230209/784197373924212776/Screenshot_20201204_001626.png)
+<img align="left" src="https://cdn.discordapp.com/attachments/177443107355230209/784197372611395614/Screenshot_20201204_001614.png" width="450" />
+<img src="https://cdn.discordapp.com/attachments/177443107355230209/784197373924212776/Screenshot_20201204_001626.png" width="450" />
 
 Normal maps are applied during this pass.
 
@@ -63,9 +59,8 @@ The scenes is rendered multiple times from the lights point of view into an 8k x
 A compute shader is dispatched to calculate diffuse and specular irradiance from
 the buffers of the previous frame.
 
-![](https://cdn.discordapp.com/attachments/177443107355230209/784197381851578378/Screenshot_20201204_001724.png)
-
-![](https://cdn.discordapp.com/attachments/177443107355230209/784197383558004767/Screenshot_20201204_001737.png)
+<img align="left" src="https://cdn.discordapp.com/attachments/177443107355230209/784197381851578378/Screenshot_20201204_001724.png" width="450" />
+<img src="https://cdn.discordapp.com/attachments/177443107355230209/784197383558004767/Screenshot_20201204_001737.png" width="450" />
 
 (Some details are noticable due to normal maps)
 
@@ -73,9 +68,11 @@ the buffers of the previous frame.
 
 During this pass the scene is rendered again and material parameters (and textures) are read to calculate radiance. During this pass the depth buffer is not cleared and depth test is set to EQUAL to avoid overdraw. Those two buffers are produced:
 
-- One with SSR contribution not accounted for: ![](https://cdn.discordapp.com/attachments/177443107355230209/784197387916279828/Screenshot_20201204_001816.png)
-- One with SSR contribution:
-![](https://cdn.discordapp.com/attachments/177443107355230209/784197389900054528/Screenshot_20201204_001828.png)
+- One with SSR contribution not accounted for
+- One with SSR contribution
+
+<img align="left" src="https://cdn.discordapp.com/attachments/177443107355230209/784197387916279828/Screenshot_20201204_001816.png" width="450" />
+<img src="https://cdn.discordapp.com/attachments/177443107355230209/784197389900054528/Screenshot_20201204_001828.png" width="450" />
 
 The first render target is used in the next frame for SSR.
  
@@ -99,10 +96,8 @@ At some point I started extending the Hello triangle example to load and display
 a scene loaded from a .obj file. I then implementare deferred shading and shadow
 mapping and got the following results:
 
-
-![](https://cdn.discordapp.com/attachments/177443107355230209/784204414458003487/Screenshot_20201204_004714.png)
-
-![](https://cdn.discordapp.com/attachments/177443107355230209/784204414080122920/Screenshot_20201204_004646.png)
+<img align="left" src="https://cdn.discordapp.com/attachments/177443107355230209/784204414458003487/Screenshot_20201204_004714.png" width="450" />
+<img src="https://cdn.discordapp.com/attachments/177443107355230209/784204414080122920/Screenshot_20201204_004646.png" width="450" />
 
 I attempted to port this engine to vulkan however the code was not well
 structured so I decided to start from scratch, this time using Rust.

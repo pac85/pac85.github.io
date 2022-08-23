@@ -94,6 +94,20 @@ tries to mimic the response of film. Gamma correction is also applied.
 
 At this point UI is rendered on top and the final image is produced.
 
+# Audio
+
+My engine also includes a simple spatial audio renderer that I made from
+scratch. The actual audio output is handled by a rust library calledrodio. 
+I implemented the following features:
+
+- Binaural audio 
+Using the overlap save method to perform the convlution between the HRTF and the
+audio signal.
+- Reverberation using a Schroeder filter
+- Inverse square fallof
+
+The audio rendered is made to be simple, modular and extensible.
+
 # First efforts 
 
 I started working on my own engine after being let down by how much "magic"
